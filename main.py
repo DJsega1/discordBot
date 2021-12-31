@@ -11,6 +11,7 @@ from cogs.profile import Profile
 from cogs.transfer import Transfer
 from cogs.daily import Daily
 from cogs.top import Top
+from cogs.duels import Duels
 
 client = MongoClient('localhost', 27017)
 db = client["guildRyoko"]
@@ -60,4 +61,6 @@ bot.add_cog(Transfer(bot, db))
 bot.add_cog(Profile(bot, db))
 bot.add_cog(Daily(bot, db))
 bot.add_cog(Top(bot, db))
+bot.add_cog(Duels(bot, db))
+
 bot.run("OTE1NzA4MzM1NjI4NjI4MDA4.Yafh2A.T2UFhjqE7sGh-STTGFL6HhK2o_c")
