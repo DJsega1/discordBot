@@ -18,7 +18,7 @@ class Top(commands.Cog):
         for i in users:
             try:
                 desc += f'{self.bot.get_user(i["id"]).mention} - **{i["cash"]}**\n'
-            except KeyError:
+            except Exception:
                 continue
         embed = Embed(title="ТОП-10 пользователей по количеству валюты на балансе", description=desc)
         embed.set_thumbnail(url=interaction.user.display_avatar.url)
@@ -35,8 +35,8 @@ class Top(commands.Cog):
                    f" **{i['online_all'] % 60}** секунд"
             try:
                 desc += f'{self.bot.get_user(i["id"]).mention} - {time}\n'
-            except KeyError:
-                pass
+            except Exception:
+                continue
         embed = Embed(title="ТОП-10 пользователей по онлайну", description=desc)
         embed.set_thumbnail(url=interaction.user.display_avatar.url)
         await interaction.response.send_message(embed=embed)

@@ -35,7 +35,7 @@ class Transfer(commands.Cog):
                                     style=ButtonStyle.link, url=guild_info["donate_url"]))
             embed = Embed(title="Передача валюты",
                           description=f"{interaction.user.mention}, Вы **передали** пользователю {user.mention} "
-                                      f"**{value}**, включая коммиссию **{commission}%**")
+                                      f"**{value}**, включая комиссию **{commission}%**")
             embed.set_thumbnail(url=interaction.user.display_avatar.url)
             self.db[str(interaction.guild_id)].update_one({'id': interaction.user.id}, {"$inc": {"cash": -amount}})
             self.db[str(interaction.guild_id)].update_one({'id': user.id}, {"$inc": {"cash": value}})
